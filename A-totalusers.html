@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F4F4F9;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2F3C7E;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            color: white;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+            background-color: #F4F4F9;
+        }
+
+        .header {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header .logout-button {
+            background-color: #FF4B5C;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .content-area {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .content-area h2 {
+            margin-top: 0;
+            color: #2F3C7E;
+        }
+
+        /* Add your custom styles for the content here */
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>HDIMS Admin</h2>
+        <ul>
+            <li><a href="Admindash.html">Dashboard</a></li>
+            <li><a href="A-users.html">Users</a></li>
+            <li><a href="A-settings.html">Settings</a></li>
+            <li><a href="A-reports.html">Reports</a></li>
+            <li><a href="A-analytics.html">Analytics</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Total Users</h1>
+            <button class="logout-button" onclick="location.href='Adminlogin.html'">Logout</button>
+        </div>
+
+        <div class="content-area">
+            <h2>Total Users Overview</h2>
+            <p>Details about the total number of users will be displayed here.</p>
+            <!-- Add more content specific to total users here -->
+        </div>
+    </div>
+
+</body>
+</html>

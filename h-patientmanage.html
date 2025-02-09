@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 230px;
+            background-color: #2F3C7E;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .sidebar a:hover {
+            background-color: #4CAF50;
+        }
+
+        .sidebar .logout {
+            background-color: #FF6B6B;
+            text-align: center;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .user-info {
+            font-size: 18px;
+        }
+
+        /* Main content area */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 230px; /* Adjusted for new sidebar width */
+        }
+
+        .main-content h1 {
+            margin-top: 0;
+        }
+
+        /* Dashboard cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* Button styles */
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Form styles */
+        .form-container {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            margin-bottom: 10px;
+        }
+
+        .form-container input, .form-container select {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2F3C7E;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .view-link {
+            color: #2F3C7E;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .view-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Hospitals Dashboard</h2>
+        <a href="Hospitalsdash.html">Home</a>
+        <a href="h-empmange.html">Employee Management</a>
+        <a href="h-patientmanage.html">Patient Management</a>
+        <a href="h-reports.html">Reports</a>
+        <a href="h-inventry.html">Inventory</a>
+        <a href="h-settings.html">Settings</a>
+        <a href="logins.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">HDIMS</div>
+            <div class="user-info">(Hospital Name)</div>
+        </div>
+
+        <!-- Content Section -->
+        <h1>Patient Management</h1>
+        <button class="button" onclick="toggleForm()">New Patient</button>
+
+        <!-- New Patient Form -->
+        <div class="form-container" id="form-container">
+            <h2>Add New Patient</h2>
+            <form id="new-patient-form">
+                <label for="patient-name">Name:</label>
+                <input type="text" id="patient-name" name="patient-name" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" required>
+
+                <input type="submit" value="Add Patient">
+            </form>
+        </div>
+
+        <!-- Patient Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>Mobile Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="patient-table-body">
+                <!-- Existing patient data will go here -->
+                <!-- Example row with View link: -->
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>30</td>
+                    <td>Male</td>
+                    <td>123 Elm St</td>
+                    <td>(123) 456-7890</td>
+                    <td><a href="view-patient.html?id=1" class="view-link">View</a></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const formContainer = document.getElementById('form-container');
+            formContainer.style.display = (formContainer.style.display === 'none' || formContainer.style.display === '') ? 'block' : 'none';
+        }
+
+        // Handle form submission
+        document.getElementById('new-patient-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const name = document.getElementById('patient-name').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const address = document.getElementById('address').value;
+            const mobile = document.getElementById('mobile').value;
+
+            // Add new patient to the table
+            const tableBody = document.getElementById('patient-table-body');
+            const newRow = tableBody.insertRow();
+            const newId = tableBody.rows.length; // Update ID dynamically
+            newRow.innerHTML = `
+                <td>${newId}</td>
+                <td>${name}</td>
+                <td>${age}</td>
+                <td>${gender}</td>
+                <td>${address}</td>
+                <td>${mobile}</td>
+                <td><a href="view-patient.html?id=${newId}" class="view-link">View</a></td>
+            `;
+
+            // Clear form
+            document.getElementById('new-patient-form').reset();
+            toggleForm(); // Hide the form after submission
+        });
+    </script>
+</body>
+</html>

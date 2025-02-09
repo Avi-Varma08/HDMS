@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDIMS Patient Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F3F4F6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4757A1;
+        }
+
+        .sidebar .logout {
+            background-color: #FF6B6B;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .main-content h1 {
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            text-decoration: none; /* Remove default underline */
+            color: inherit; /* Inherit text color from parent */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Style the link within the card */
+        .card-link {
+            display: block;
+            height: 100%;
+            width: 100%;
+            text-decoration: none; /* Remove underline from link */
+            color: inherit; /* Ensure text color is inherited */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>HDIMS Dashboard</h2>
+        <a href="Patientdash.html">Home</a>
+        <a href="patientprofile.html">My Profile</a>
+        <a href="patientAppointment.html">Appointments</a>
+        <a href="patientmedrecords.html">Medical Records</a>
+        <a href="p-messages.html">Messages</a>
+        <a href="p-prescription.html">Prescriptions</a>
+        <a href="p-billing.html">Billing</a>
+        <a href="logins.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Welcome, [Patient Name]</h1>
+
+        <div class="cards">
+            <!-- Appointments Card -->
+            <a href="patientAppointment.html" class="card card-link">
+                <h3>Upcoming Appointments</h3>
+                <p>No appointments scheduled.</p>
+            </a>
+
+            <!-- Medical Records Card -->
+            <a href="patientmedrecords.html" class="card card-link">
+                <h3>Medical Records</h3>
+                <p>View your medical history and lab results.</p>
+            </a>
+
+            <!-- Messages Card -->
+            <a href="p-messages.html" class="card card-link">
+                <h3>Messages</h3>
+                <p>You have no new messages.</p>
+            </a>
+
+            <!-- Prescriptions Card -->
+            <a href="p-prescription.html" class="card card-link">
+                <h3>Prescriptions</h3>
+                <p>Check your current and past prescriptions.</p>
+            </a>
+
+            <!-- Billing Card -->
+            <a href="p-billing.html" class="card card-link">
+                <h3>Billing</h3>
+                <p>Review and pay your medical bills.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

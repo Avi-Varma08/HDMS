@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDIMS Patient Appointments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F3F4F6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4757A1;
+        }
+
+        .sidebar .logout {
+            background-color: #FF6B6B;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .main-content h1 {
+            margin-bottom: 20px;
+        }
+
+        .appointments-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .appointments-table th,
+        .appointments-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .appointments-table th {
+            background-color: #2F3C7E;
+            color: white;
+        }
+
+        .appointments-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .no-appointments {
+            text-align: center;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .form-group button {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #4757A1;
+        }
+
+        .hospital-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .hospital-list li {
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hospital-list li h4 {
+            margin: 0;
+        }
+
+        .hospital-list li button {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hospital-list li button:hover {
+            background-color: #4757A1;
+        }
+
+        .selected-hospital {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .selected-hospital h2 {
+            margin: 0;
+        }
+
+        .selected-hospital p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>HDIMS Dashboard</h2>
+        <a href="Patientdash.html">Home</a>
+        <a href="patientprofile.html">My Profile</a>
+        <a href="#">Appointments</a>
+        <a href="patientmedrecords.html">Medical Records</a>
+        <a href="p-messages.html">Messages</a>
+        <a href="p-prescription.html">Prescriptions</a>
+        <a href="p-billing.html">Billing</a>
+        <a href="logins.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Your Appointments</h1>
+
+        <!-- Hospital Selection Section -->
+        <div class="form-group">
+            <label for="state">Select State</label>
+            <select id="state">
+                <option>Select State</option>
+                <option>Andhra Pradesh</option>
+                <option>Telangana</option>
+                <option>Tamil Nadu</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="district">Select District</label>
+            <select id="district">
+                <option>Select District</option>
+                <option>District 1</option>
+                <option>District 2</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="disease">Select Disease</label>
+            <select id="disease">
+                <option>Select Disease</option>
+                <option>Fever</option>
+                <option>Cough</option>
+                <option>Headache</option>
+                <option>Diabetes</option>
+                <option>Hypertension</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="button" onclick="showHospitals()">Find Best Hospitals</button>
+        </div>
+
+        <!-- Hospital List Section -->
+        <div class="hospital-list" id="hospital-list">
+            <ul>
+                <!-- Dynamically populated hospital list will go here -->
+            </ul>
+        </div>
+
+        <!-- Selected Hospital Section -->
+        <div class="selected-hospital" id="selected-hospital" style="display: none;">
+            <h2 id="hospital-name">Best Care Hospital</h2>
+            <p>Rating: <span id="hospital-rating">4.8</span></p>
+            <p>Distance: <span id="hospital-distance">2 miles</span></p>
+        </div>
+
+        <!-- Appointment Booking Form -->
+        <form id="appointment-form" style="display: none;">
+            <div class="form-group">
+                <label for="doctor">Select Doctor</label>
+                <select id="doctor" required>
+                    <option>Select Doctor</option>
+                    <option>Dr. John Doe</option>
+                    <option>Dr. Jane Smith</option>
+                    <option>Dr. Mark Robinson</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Select Department</label>
+                <select id="department" required>
+                    <option>Select Department</option>
+                    <option>Cardiology</option>
+                    <option>Orthopedics</option>
+                    <option>Neurology</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="appointment-date">Select Date</label>
+                <input type="date" id="appointment-date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="appointment-time">Select Time</label>
+                <input type="time" id="appointment-time" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Book Appointment</button>
+            </div>
+        </form>
+
+        <!-- Appointments Table -->
+        <table class="appointments-table">
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Doctor</th>
+                <th>Department</th>
+                <th>Status</th>
+            </tr>
+
+            <!-- Example row -->
+            <tr>
+                <td>Sept 15, 2024</td>
+                <td>10:30 AM</td>
+                <td>Dr. John Doe</td>
+                <td>Cardiology</td>
+                <td>Confirmed</td>
+            </tr>
+
+            <!-- If no appointments -->
+            <tr>
+                <td colspan="5" class="no-appointments">No appointments scheduled.</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function showHospitals() {
+            // Example hospitals based on state, district, and disease selection
+            const hospitals = [
+                { name: "Best Care Hospital", rating: "4.8", distance: "2 miles" },
+                { name: "Premium Health Clinic", rating: "4.6", distance: "5 miles" },
+                { name: "City Hospital", rating: "4.5", distance: "3 miles" }
+            ];
+
+            const hospitalList = document.getElementById('hospital-list').querySelector('ul');
+            hospitalList.innerHTML = ''; // Clear previous list
+
+            hospitals.forEach(hospital => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <h4>${hospital.name}</h4>
+                    <p>Rating: ${hospital.rating} | Distance: ${hospital.distance}</p>
+                    <button type="button" onclick="selectHospital('${hospital.name}', '${hospital.rating}', '${hospital.distance}')">Select</button>
+                `;
+                hospitalList.appendChild(li);
+            });
+        }
+
+        function selectHospital(name, rating, distance) {
+            // Update selected hospital details
+            document.getElementById('hospital-name').textContent = name;
+            document.getElementById('hospital-rating').textContent = rating;
+            document.getElementById('hospital-distance').textContent = distance;
+
+            // Show the selected hospital section and appointment form
+            document.getElementById('selected-hospital').style.display = 'block';
+            document.getElementById('appointment-form').style.display = 'block';
+        }
+
+        // Handle the appointment form submission
+        document.getElementById('appointment-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            // Gather the appointment details
+            const doctor = document.getElementById('doctor').value;
+            const department = document.getElementById('department').value;
+            const date = document.getElementById('appointment-date').value;
+            const time = document.getElementById('appointment-time').value;
+
+            // Here you could send this data to the server or show a confirmation message
+            alert(`Appointment booked with ${doctor} in ${department} on ${date} at ${time} at ${document.getElementById('hospital-name').textContent}`);
+        });
+    </script>
+</body>
+</html>

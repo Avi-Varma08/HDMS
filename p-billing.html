@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDIMS Patient Billing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F3F4F6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4757A1;
+        }
+
+        .sidebar .logout {
+            background-color: #FF6B6B;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .main-content h1 {
+            margin-bottom: 20px;
+        }
+
+        .billing-section {
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .billing-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .billing-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .billing-item:last-child {
+            border-bottom: none;
+        }
+
+        .billing-item h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #2F3C7E;
+        }
+
+        .billing-item p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .billing-item .billing-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .billing-item .billing-amount {
+            font-weight: bold;
+            color: #FF6B6B;
+        }
+
+        .no-billing {
+            text-align: center;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .pay-button {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .pay-button:hover {
+            background-color: #4757A1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>HDIMS Dashboard</h2>
+        <a href="Patientdash.html">Home</a>
+        <a href="patientprofile.html">My Profile</a>
+        <a href="patientAppointment.html">Appointments</a>
+        <a href="patientmedrecords.html">Medical Records</a>
+        <a href="p-messages.html">Messages</a>
+        <a href="p-prescription.html">Prescriptions</a>
+        <a href="#">Billing</a>
+        <a href="logins.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Billing Information</h1>
+
+        <div class="billing-section">
+            <ul class="billing-list">
+                <!-- Example Billing Item -->
+                <li class="billing-item">
+                    <h3>Consultation Fee</h3>
+                    <p>Description: General consultation with Dr. John Doe</p>
+                    <p class="billing-date">Date: Aug 25, 2024</p>
+                    <p class="billing-amount">Amount Due: ₹1500.00</p>
+                    <button class="pay-button">Pay Now</button>
+                </li>
+
+                <!-- Example Billing Item -->
+                <li class="billing-item">
+                    <h3>Lab Tests</h3>
+                    <p>Description: Blood test and X-ray</p>
+                    <p class="billing-date">Date: Sep 01, 2024</p>
+                    <p class="billing-amount">Amount Due: ₹3000.00</p>
+                    <button class="pay-button">Pay Now</button>
+                </li>
+
+                <!-- Add more billing items as needed -->
+
+                <!-- If no billing items -->
+                <li class="no-billing">No outstanding bills at this time.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

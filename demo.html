@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to HDIMS</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Ensure the overlay positions correctly */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yNV9zaW1wbGVfM2RfaWxsdXN0cmF0aW9uX29mX2FfcmVjb3Zlcnlfcm9vbV93aV80ZjhkNDIwNC02N2I4LTQwMDQtYTBlNy05YjljMjIyMzE2ZGVfMS5qcGc.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.7; /* Adjust the opacity here */
+    z-index: -1; /* Place the overlay behind the content */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: for better readability */
+    color: #2F3C7E;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between; /* Align items to the edges */
+    align-items: center; /* Center items vertically */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+header h1 {
+    font-size: 30px;
+    margin: 0;
+    padding-left: 20px; /* Space from the left edge */
+}
+
+.buttons {
+    padding-right: 20px; /* Space from the right edge */
+}
+
+.btn {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #2F3C7E;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #2F3C7E;
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #091f91;
+}
+
+.btn-secondary:hover {
+    background-color: #091f91;
+}
+
+main {
+    padding: 50px 0;
+}
+
+.welcome-section {
+    text-align: center; /* Center text horizontally */
+    margin: 0 auto; /* Center the section if it has a specific width */
+}
+
+.welcome-section h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+.btn-underline {
+    text-decoration: underline; /* Add underline here */
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><b>Health Data Information Management System</b></h1>
+        <div class="buttons">
+            <a href="logins.html" class="btn btn-primary">Login/Register</a>
+            <a href="Adminlogin.html" class="btn btn-secondary">Admin Login</a>
+        </div>
+    </header>
+<br>
+<br>
+    <main>
+        <div class="container">
+            <div class="welcome-section">
+                <h1>Patients Registry</h1>
+                <p>The HDIMS Mobile Application gives patients a simple and safe way to access their health information,<br> follow their health progress, and connect with registered healthcare facilities. This app helps patients<br> by providing trustworthy health data, allowing them to make better decisions about their health and care.</p><br>
+                <h1>Facility Registry</h1>
+                <p>The Health Data Information & Management System (HDIMS) is a platform that helps healthcare facilities<br> easily manage and update health data. By using HDIMS, hospitals and healthcare departments at local,<br> district, and state levels can share health information smoothly and efficiently. This helps in accurately<br> monitoring healthcare activities and supports the effective implementation of health programs and policies.</p><br><br>
+                <h1>Who Can Register?</h1>
+                <p>Individuals, including patients who want healthcare services from registered public or private hospitals,<br> clinics, or diagnostic centers, can register on the HDIMS platform. This allows them to access a safe <br>system to manage their health information and stay updated on health programs.<br>
+                    <br>
+                    Facility managers and administrative staff of hospitals, clinics, diagnostic labs, imaging centers, and <br>pharmacies, whether public or private, can also register to manage and update health data. By registering,<br> these facilities can be part of a connected health data system to improve healthcare services.</p>
+                    <div class="sam">
+                        <a class="btn btn-underline" href="logins.html"><b>Register Now</b></a>
+                    </div>
+                    
+            </div>
+        </div>
+    </main>
+</body>
+</html>

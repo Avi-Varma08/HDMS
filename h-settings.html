@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDIMS Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 230px;
+            background-color: #2F3C7E;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .sidebar a:hover {
+            background-color: #4CAF50;
+        }
+        .sidebar .logout {
+            background-color: #FF6B6B;
+            text-align: center;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .user-info {
+            font-size: 18px;
+        }
+
+        /* Main content area */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .main-content h1 {
+            margin-top: 0;
+        }
+
+        /* Settings form styles */
+        .settings-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .settings-form h2 {
+            margin-top: 0;
+            color: #2F3C7E;
+        }
+
+        .settings-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .settings-form input[type="text"],
+        .settings-form input[type="email"],
+        .settings-form input[type="password"],
+        .settings-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .settings-form input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .settings-form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Hospitals Dashboard</h2>
+        <a href="Hospitalsdash.html">Home</a>
+        <a href="h-empmange.html">Employee Management</a>
+        <a href="h-patientmanage.html">Patient Management</a>
+        <a href="h-reports.html">Reports</a>
+        <a href="h-inventry.html">Inventory</a>
+        <a href="h-settings.html">Settings</a>
+        <a href="logins.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">HDIMS</div>
+            <div class="user-info">(Hospital Name)</div>
+        </div>
+
+        <!-- Content Section -->
+        <h1>Settings</h1>
+
+        <!-- Settings Form -->
+        <div class="settings-form">
+            <h2>Account Settings</h2>
+            <form action="#" method="post">
+                <label for="hospital-name">Hospital Name</label>
+                <input type="text" id="hospital-name" name="hospital-name" value="Hospital Name" required>
+
+                <label for="email">Admin Email</label>
+                <input type="email" id="email" name="email" value="admin@hospital.com" required>
+
+                <label for="password">Change Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter new password">
+
+                <label for="timezone">Time Zone</label>
+                <select id="timezone" name="timezone">
+                    <option value="UTC" selected>UTC</option>
+                    <option value="PST">Pacific Standard Time (PST)</option>
+                    <option value="EST">Eastern Standard Time (EST)</option>
+                    <option value="CET">Central European Time (CET)</option>
+                    <!-- Add more time zones as needed -->
+                </select>
+
+                <input type="submit" value="Save Settings">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

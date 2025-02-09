@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDIMS Hospitals Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 230px;
+            background-color: #2F3C7E;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .sidebar a:hover {
+            background-color: #4CAF50;
+        }
+
+        .sidebar .logout {
+            background-color: #FF6B6B;
+            text-align: center;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .user-info {
+            font-size: 18px;
+        }
+
+        /* Main content area */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .main-content h1 {
+            margin-top: 0;
+        }
+
+        /* Dashboard cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Hospitals Dashboard</h2>
+        <a href="Hospitalsdash.html">Home</a>
+        <a href="h-empmange.html">Employee Management</a>
+        <a href="h-patientmanage.html">Patient Management</a>
+        <a href="h-reports.html">Reports</a>
+        <a href="h-inventry.html">Inventory</a>
+        <a href="h-settings.html">Settings</a>
+        <a href="logins.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">HDIMS</div>
+            <div class="user-info">(Hospital Name)</div>
+        </div>
+
+        <!-- Content Section -->
+        <h1>Dashboard Overview</h1>
+        <div class="card-container">
+            <a href="h-totalpatient.html" class="card">
+                <h3>Total Patients</h3>
+                <p>2</p>
+            </a>
+            <a href="h-empmange.html" class="card">
+                <h3>Employees</h3>
+                <p>2</p>
+            </a>
+            <a href="h-inventry.html" class="card">
+                <h3>Inventory Status</h3>
+                <p>Good</p>
+            </a>
+            <a href="h-reports.html" class="card">
+                <h3>Reports</h3>
+                <p>View latest reports</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

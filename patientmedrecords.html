@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDIMS Patient Medical Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F3F4F6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4757A1;
+        }
+
+        .sidebar .logout {
+            background-color: #FF6B6B;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .main-content h1 {
+            margin-bottom: 20px;
+        }
+
+        .records-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .records-table th, .records-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .records-table th {
+            background-color: #2F3C7E;
+            color: white;
+        }
+
+        .records-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .no-records {
+            text-align: center;
+            color: #555;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>HDIMS Dashboard</h2>
+        <a href="Patientdash.html">Home</a>
+        <a href="patientprofile.html">My Profile</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="#">Medical Records</a>
+        <a href="p-messages.html">Messages</a>
+        <a href="p-prescription.html">Prescriptions</a>
+        <a href="p-billing.html">Billing</a>
+        <a href="logins.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Your Medical Records</h1>
+
+        <!-- Medical Records Table -->
+        <table class="records-table">
+            <tr>
+                <th>Date</th>
+                <th>Doctor</th>
+                <th>Department</th>
+                <th>Type</th>
+                <th>Details</th>
+            </tr>
+
+            <!-- Example row -->
+            <tr>
+                <td>Aug 20, 2024</td>
+                <td>Dr. Jane Smith</td>
+                <td>Dermatology</td>
+                <td>Lab Test</td>
+                <td>Blood test results</td>
+            </tr>
+            <!-- Add more rows as needed -->
+
+            <!-- If no records -->
+            <tr>
+                <td colspan="5" class="no-records">No medical records found.</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

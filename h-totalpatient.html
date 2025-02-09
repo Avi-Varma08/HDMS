@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Patients - HDIMS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 230px;
+            background-color: #2F3C7E;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .sidebar a:hover {
+            background-color: #4CAF50;
+        }
+        .sidebar .logout {
+            background-color: #FF6B6B;
+            text-align: center;
+        }
+
+        /* Main content area */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .main-content h1 {
+            margin-top: 0;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #2F3C7E;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* Table styles */
+        .patient-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .patient-table th, .patient-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .patient-table th {
+            background-color: #2F3C7E;
+            color: white;
+        }
+
+        .patient-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Hospitals Dashboard</h2>
+        <a href="Hospitalsdash.html">Home</a>
+        <a href="h-empmange.html">Employee Management</a>
+        <a href="h-patientmanage.html">Patient Management</a>
+        <a href="h-reports.html">Reports</a>
+        <a href="h-inventry.html">Inventory</a>
+        <a href="h-settings.html">Settings</a>
+        <a href="logins.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <h1>Total Patients</h1>
+        <div class="card">
+            <h2>Total Patients</h2>
+            <p>1,245</p>
+        </div>
+
+        <!-- Patient Details Table -->
+        <h2>Patient Details</h2>
+        <table class="patient-table">
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Data -->
+                <tr>
+                    <td>P0001</td>
+                    <td>John Doe</td>
+                    <td>34</td>
+                    <td>Male</td>
+                    <td>123-456-7890</td>
+                </tr>
+                <tr>
+                    <td>P0002</td>
+                    <td>Jane Smith</td>
+                    <td>29</td>
+                    <td>Female</td>
+                    <td>987-654-3210</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

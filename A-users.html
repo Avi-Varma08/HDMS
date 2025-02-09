@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDIMS Admin - Users and Hospital Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F4F4F9;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2F3C7E;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            color: white;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #4456A6;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+            background-color: #F4F4F9;
+        }
+
+        .header {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header .logout-button {
+            background-color: #FF4B5C;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .users-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .users-table th, .users-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .users-table th {
+            background-color: #2F3C7E;
+            color: white;
+        }
+
+        .users-table tr:nth-child(even) {
+            background-color: #F4F4F9;
+        }
+
+        .users-table tr:hover {
+            background-color: #ddd;
+        }
+
+        .users-table .actions {
+            text-align: center;
+        }
+
+        .users-table .actions a {
+            color: #2F3C7E;
+            text-decoration: none;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        .users-table .actions a:hover {
+            text-decoration: underline;
+        }
+
+        .add-user-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .add-user-button:hover {
+            background-color: #45a049;
+        }
+
+        .hospital-details {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .hospital-details h2 {
+            margin-top: 0;
+        }
+
+        .hospital-details p {
+            font-size: 16px;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .details-table th, .details-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .details-table th {
+            background-color: #2F3C7E;
+            color: white;
+        }
+
+        .details-table tr:nth-child(even) {
+            background-color: #F4F4F9;
+        }
+
+        .details-table tr:hover {
+            background-color: #ddd;
+        }
+
+        .view-section {
+            display: none; /* Initially hidden */
+        }
+
+        .back-button {
+            background-color: #2196F3;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background-color: #0b79d0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>HDIMS Admin</h2>
+        <ul>
+            <li><a href="Admindash.html">Dashboard</a></li>
+            <li><a href="A-users.html">Users</a></li>
+            <li><a href="A-settings.html">Settings</a></li>
+            <li><a href="A-reports.html">Reports</a></li>
+            <li><a href="A-analytics.html">Analytics</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1 id="page-title">Users Management</h1>
+            <button class="logout-button" onclick="location.href='Adminlogin.html'">Logout</button>
+        </div>
+
+        <a href="#" class="add-user-button">Add New User</a>
+
+        <div id="user-table" class="user-section">
+            <table class="users-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hospital Name</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th class="actions">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>City Hospital</td>
+                        <td>123 Main St, Cityville</td>
+                        <td>Active</td>
+                        <td class="actions">
+                            <a href="#" onclick="showHospitalDetails(1)">View</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Greenfield Clinic</td>
+                        <td>456 Oak Ave, Greenfield</td>
+                        <td>Inactive</td>
+                        <td class="actions">
+                            <a href="#" onclick="showHospitalDetails(2)">View</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Sunset Medical Center</td>
+                        <td>789 Pine Rd, Sunset</td>
+                        <td>Active</td>
+                        <td class="actions">
+                            <a href="#" onclick="showHospitalDetails(3)">View</a>
+                        </td>
+                    </tr>
+                    <!-- Additional hospitals can be added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="hospital-details" class="view-section">
+            <button class="back-button" onclick="goBack()">Back</button>
+            <div class="hospital-details">
+                <h2 id="hospital-name">Hospital Name</h2>
+                <p id="hospital-address">Address</p>
+                <p><strong>Status:</strong> <span id="hospital-status">Active</span></p>
+            </div>
+
+            <h2>Hospital Statistics</h2>
+            <table class="details-table">
+                <thead>
+                    <tr>
+                        <th>Number of Doctors</th>
+                        <th>Number of Staff</th>
+                        <th>Number of Patients</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="num-doctors">0</td>
+                        <td id="num-staff">0</td>
+                        <td id="num-patients">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Example data for demonstration
+        const hospitalData = {
+            1: {
+                name: "City Hospital",
+                address: "123 Main St, Cityville",
+                status: "Active",
+                numDoctors: 45,
+                numStaff: 120,
+                numPatients: 300
+            },
+            2: {
+                name: "Greenfield Clinic",
+                address: "456 Oak Ave, Greenfield",
+                status: "Inactive",
+                numDoctors: 20,
+                numStaff: 60,
+                numPatients: 150
+            },
+            3: {
+                name: "Sunset Medical Center",
+                address: "789 Pine Rd, Sunset",
+                status: "Active",
+                numDoctors: 30,
+                numStaff: 80,
+                numPatients: 200
+            }
+        };
+
+        function showHospitalDetails(id) {
+            // Hide user table and show hospital details
+            document.getElementById('user-table').style.display = 'none';
+            document.getElementById('hospital-details').style.display = 'block';
+            document.getElementById('page-title').textContent = 'Hospital Details';
+
+            // Update hospital details
+            const data = hospitalData[id];
+            document.getElementById('hospital-name').textContent = data.name;
+            document.getElementById('hospital-address').textContent = data.address;
+            document.getElementById('hospital-status').textContent = data.status;
+            document.getElementById('num-doctors').textContent = data.numDoctors;
+            document.getElementById('num-staff').textContent = data.numStaff;
+            document.getElementById('num-patients').textContent = data.numPatients;
+        }
+
+        function goBack() {
+            // Hide hospital details and show user table
+            document.getElementById('hospital-details').style.display = 'none';
+            document.getElementById('user-table').style.display = 'block';
+            document.getElementById('page-title').textContent = 'Users Management';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDIMS Employee Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 230px;
+            background-color: #2F3C7E;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .sidebar a:hover {
+            background-color: #4CAF50;
+        }
+        .sidebar .logout {
+            background-color: #FF6B6B;
+            text-align: center;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #2F3C7E;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .user-info {
+            font-size: 18px;
+        }
+
+        /* Main content area */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .main-content h1 {
+            margin-top: 0;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2F3C7E;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+
+        /* Buttons */
+        .add-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px; /* Space between buttons */
+        }
+
+        .add-button:hover {
+            background-color: #45a049;
+        }
+
+        .section-header {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2F3C7E;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Hospitals Dashboard</h2>
+        <a href="Hospitalsdash.html">Home</a>
+        <a href="h-empmange.html">Employee Management</a>
+        <a href="h-patientmanage.html">Patient Management</a>
+        <a href="h-reports.html">Reports</a>
+        <a href="h-inventry.html">Inventory</a>
+        <a href="h-settings.html">Settings</a>
+        <a href="logins.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">HDIMS</div>
+            <div class="user-info">(Hospital Name)</div>
+        </div>
+
+        <!-- Content Section -->
+        <h1>Employee Management</h1>
+
+        <!-- Add Buttons -->
+        <a href="#" class="add-button">Add Doctor</a>
+        <a href="#" class="add-button">Add Staff</a>
+
+        <!-- Doctors Table -->
+        <div class="section-header">Doctors</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Department</th>
+                    <th>Contact</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Doctor</td>
+                    <td>Cardiology</td>
+                    <td>213456745</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#" style="color: red;">Delete</a>
+                    </td>
+                </tr>
+                <!-- Additional doctors can be added here -->
+            </tbody>
+        </table>
+
+        <!-- Staff Table -->
+        <div class="section-header">Staff</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Department</th>
+                    <th>Contact</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>Nurse</td>
+                    <td>Emergency</td>
+                    <td>123456789</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#" style="color: red;">Delete</a>
+                    </td>
+                </tr>
+                <!-- Additional staff can be added here -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
